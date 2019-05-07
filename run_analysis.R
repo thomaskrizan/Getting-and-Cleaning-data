@@ -45,3 +45,4 @@ meanSdData <- combData[,meanSd==T]
 actNameData <- merge(meanSdData,actLab,by = 'actId',all.x = T)
 #Create the second tidy dataset with the average of each variable for each activity and each subject.
 tidyData <- actNameData %>% group_by(actType,subId) %>% summarise_at(.vars = vars(`tBodyAcc-mean()-X`:`fBodyBodyGyroJerkMag-meanFreq()`), list(mean))
+write.csv(tidyData,file = 'tidyData.csv')
