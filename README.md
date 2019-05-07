@@ -14,6 +14,7 @@ You should create one R script called run_analysis.R that does the following.
 
 1. Download the data from the link given in Codebook.md.
 2. Set your working directory to the same working directory as the zipped data folder with the ```setwd(directory)```.
+3. Place the ```run_analysis.R``` file in the same directory.
 3. Run ```source("run_analysis.R")```, The script will output a fule called ```tidydata.csv``` in the directory you set before.
 
 ## Required Libraries
