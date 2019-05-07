@@ -18,4 +18,4 @@ You should create one R script called run_analysis.R that does the following.
 
 ## Required Libraries
 
-The ```run_analysis.R``` file has one dependency, ```dplyr``` which it installs automatically if it is not already installed.
+The ```run_analysis.R``` file has one dependency, ```dplyr```, which it installs automatically if it is not already installed.
