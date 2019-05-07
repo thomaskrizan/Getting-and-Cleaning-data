@@ -1,7 +1,12 @@
-library(dplyr)
+#Ensure the dplyr package is installed
+if(!require("dplyr")){
+  install.packages('dplyr')
+}
+
+require(dplyr)
 #setwd to folder in which data is stored.
 #unzip data files
-unzip(zipfile = 'Dataset.zip',exdir = paste(getwd(),'GCDproj',sep = '/'))
+unzip(zipfile = 'getdata_projectfiles_UCI HAR Dataset.zip',exdir = paste(getwd(),'GCDproj',sep = '/'))
 #explore what files arein the Data
 path <- file.path("./GCDproj","UCI HAR Dataset")
 dataset <- list.files(path,recursive = T)
@@ -39,4 +44,4 @@ meanSdData <- combData[,meanSd==T]
 #replace activity ID with the activiity names.
 actNameData <- merge(meanSdData,actLab,by = 'actId',all.x = T)
 #Create the second tidy dataset with the average of each variable for each activity and each subject.
-tidyData <- actNameData %>% group_by(actType,subId) %>% summarise_at(.vars = vars(`tBodyAcc-mean()-X`:`fBodyBodyGyroJerkMag-meanFreq()`), funs(mean))
+tidyData <- actNameData %>% group_by(actType,subId) %>% summarise_at(.vars = vars(`tBodyAcc-mean()-X`:`fBodyBodyGyroJerkMag-meanFreq()`), list(mean))
